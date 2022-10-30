@@ -5,15 +5,9 @@ import digitalio
 from adafruit_motor import servo
 import adafruit_hcsr04
 
-pwm = pwmio.PWMOut(board.GP15, frequency=50)
-test_servo = servo.Servo(pwm, min_pulse=1000, max_pulse=2000)
-sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.GP0, echo_pin=board.GP1)
-
-debug = False
-
 class Controls:
     def __init__(self):
-        self.angle = 0
+        self.debug = False
         self.scared = False
 
 
@@ -22,8 +16,11 @@ async def monitor_servo(controls):
     scared_angle = 71
 
     # the number of angles to decrease while not scared
-    angle_delta = 3
+    angle_delta = 2
 
+    pwm = pwmio.PWMOut(board.GP15, frequency=50)
+    test_servo = servo.Servo(pwm, min_pulse=1000, max_pulse=2000)
+    test_servo.angle = 0
     while True:
         if controls.scared:
             test_servo.angle = scared_angle
@@ -53,11 +50,12 @@ async def monitor_sonar(controls):
     # means we should be scared.
     scared_max_distance = 29
 
+    sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.GP0, echo_pin=board.GP1)
     while True:
         await asyncio.sleep(0.1)
         try:
             curr_distance = int(sonar.distance)
-            if debug:
+            if controls.debug:
                 print("Distance:", curr_distance, "Reads:", sonar_reads)
             sonar_reads[sonar_read_index] = curr_distance < scared_max_distance
             sonar_read_index = (sonar_read_index + 1) % sonar_reads_size
@@ -84,5 +82,4 @@ async def main():
     await asyncio.gather(sonar_task, servo_task, blink_task)
 
 
-test_servo.angle = 0
 asyncio.run(main())
