@@ -79,4 +79,24 @@ code.py output:
 ...
 ```
 
+### References
 
+Links of pages visited while putting this repo together:
+
+- [Getting Started with Raspberry Pi Pico and CircuitPython](https://learn.adafruit.com/getting-started-with-raspberry-pi-pico-circuitpython?view=all)
+
+- [Spooky Scary Skeleton](https://www.kevsrobots.com/blog/spooky-scary-skeleton.html#bill-of-materials)
+
+- [Python all() Function](https://www.w3schools.com/python/ref_func_all.asp)
+
+- [Cooperative Multitasking in CircuitPython with asyncio](https://learn.adafruit.com/cooperative-multitasking-in-circuitpython-with-asyncio?view=all)
+
+- [Adafruit CircuitPython Ticks Library](https://docs.circuitpython.org/projects/ticks/en/latest/index.html)
+
+- [Ultrasonic Sonar Distance Sensors](https://learn.adafruit.com/ultrasonic-sonar-distance-sensors?view=all)
+
+- [Adafruit_CircuitPython_HCSR04](https://github.com/adafruit/Adafruit_CircuitPython_HCSR04)
+
+- [CircuitPython Servo Tester](https://learn.adafruit.com/circuitpython-servo-tester?view=all)
+
+- [Getting Images into Markdown Documents](https://medium.com/markdown-monster-blog/getting-images-into-markdown-documents-and-weblog-posts-with-markdown-monster-9ec6f353d8ec)
