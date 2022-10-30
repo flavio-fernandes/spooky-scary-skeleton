@@ -3,6 +3,8 @@ Circuit Python implementation of Kevin McAleer's Spooky Scary Skeleton
 
 This directory contains the software used for controlling the [Spooky Scary Skeleton](https://www.kevsrobots.com/blog/spooky-scary-skeleton.html) using [Circuit Python](https://circuitpython.org/).
 
+![Spooky](img/spooky.png)
+
 ### Removing _all_ files from CIRCUITPY drive
 
 ```
@@ -26,7 +28,7 @@ $  cd ${THIS_REPO_DIR}/
 $  [ -e ./code.py ] && \
    [ -d /Volumes/CIRCUITPY/ ] && \
    rm -rf /Volumes/CIRCUITPY/*.py && \
-   (tar czf - *) | ( cd /Volumes/CIRCUITPY ; tar xzvf - ) && \
+   (tar czf - *.py) | ( cd /Volumes/CIRCUITPY ; tar xzvf - ) && \
    echo ok || echo not_okay
 ```
 
@@ -74,7 +76,6 @@ soft reboot
 
 Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
 code.py output:
-Distance: 70 Reads: [False, False, False]
 ...
 ```
 
